@@ -10,6 +10,10 @@ async def index() -> dict[str, str]:
 async def about() -> str:
     return 'An Exceptional Company'
 
+@app.get('/me')
+async def me() -> str:
+    return {f"Do you want to know my age? >> {23}"}
+
 @app.get('/bio')
 async def bio() -> list:
     return [2, 4, 6, 8]
