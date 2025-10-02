@@ -18,6 +18,10 @@ async def me() -> str:
 async def bio() -> list:
     return [2, 4, 6, 8]
 
+@app.patch('/new')
+async def new() -> list:
+    return "new"
+
 @app.post('/add')
 async def add(item):
     item_dict = item.model_dump()
