@@ -29,7 +29,7 @@ async def band(band_id: int) -> dict:
     return band
 
 @app.get('/bands/genre/{genre}')
-async def bands_for_genre(genre: str) -> list[dict]:
+async def bands_for_genre(genre: GenreURLChoices) -> list[dict]:
     return [
-        b for b in BANDS if b['genre'].lower() == genre.lower()
+        b for b in BANDS if b['genre'].lower() == genre.value
     ]
