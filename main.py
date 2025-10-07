@@ -33,3 +33,7 @@ async def bands_for_genre(genre: GenreURLChoices) -> list[dict]:
     return [
         b for b in BANDS if b['genre'].lower() == genre.value
     ]
+
+@app.post('/bands/genre')
+async def create_genre():
+    pass
