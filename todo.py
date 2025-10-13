@@ -16,3 +16,12 @@ def read_root():
 @app.get("/todos")
 def get_todos():
     return {"todos": todos_list}
+
+@app.post("/todos")
+def create_todo(todo: SimpleTodo):
+    todos_list.append(todo.name)
+
+    return {
+        "message": f"Task '{todo.name}' added successfully",
+        "current_total": len(todos_list)
+    }
