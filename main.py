@@ -37,3 +37,19 @@ async def bands_for_genre(genre: GenreURLChoices) -> list[dict]:
 @app.post('/bands/genre')
 async def create_genre():
     pass
+
+@app.delete("/items/{item_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_item(item_id: int):
+    """
+    Deletes an item from the database based on its ID.
+    Returns a 204 No Content status on successful deletion,
+    or a 404 Not Found if the item does not exist.
+    """
+    if item_id not in items_db:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Item with ID {item_id} not found"
+        )
+    del items_db[item_id]
+    # No content to return for a successful DELETE operation (204 No Content)
+    return
