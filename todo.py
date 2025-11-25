@@ -17,6 +17,10 @@ def read_root():
 def get_todos():
     return {"todos": todos_list}
 
+@app.get("todos/{id}")
+def get_todo_with_id():
+    return {"todos": "todos_list_id"}
+
 @app.post("/todos")
 def create_todo(todo: SimpleTodo):
     todos_list.append(todo.name)
