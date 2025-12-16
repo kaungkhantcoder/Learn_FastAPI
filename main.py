@@ -4,16 +4,12 @@ from enum import Enum
 app = FastAPI()
 
 class GenreURLChoices(Enum):
-    ROCK = 'rock'
-    ELECTORNIC = 'electornic'
-    METAL = 'metal'
-    HIP_HOP = 'hip-hop'
+    League = 'Premier-League'
+    Team = 'Arsenal'
 
 BANDS = [
-    {'id': 1, 'name': 'The Kinks', 'genre': 'Rock'},
-    {'id': 2, 'name': 'Aphex Twin', 'genre': 'Electornic'},
-    {'id': 3, 'name': 'Black Sabbath', 'genre': 'Metal'},
-    {'id': 4, 'name': 'Win-Tang Clan', 'genre': 'Hip-Hop'},
+    {'id': 1, 'name': 'Premier-League', 'genre': 'League'},
+    {'id': 2, 'name': 'Arsenal', 'genre': 'Team'},
 ]
 
 @app.get('/bands')
